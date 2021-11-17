@@ -34,12 +34,15 @@ class CustomButton extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               vertical: verticalPadding, horizontal: horizontalPadding),
           primary: color,
-          side: BorderSide(width: borderWidth, color: borderColor),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(borderRadius),
-            ),
-          ),
+          side: borderColor != null && borderWidth != null
+              ? BorderSide(width: borderWidth, color: borderColor)
+              : null,
+          shape: borderRadius != null
+              ? RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                  Radius.circular(borderRadius),
+                ))
+              : null,
         ),
         onPressed: onPressed,
       ),

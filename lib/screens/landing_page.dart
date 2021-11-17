@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:watch_wallet/constants.dart';
+import 'package:watch_wallet/screens/home_page.dart';
 import 'package:watch_wallet/ui/custom_button.dart';
 
 class LandingPage extends StatelessWidget {
@@ -42,7 +43,7 @@ class LandingPage extends StatelessWidget {
               borderWidth: 1.h,
               verticalPadding: 20.h,
               horizontalPadding: 97.w,
-              onPressed: () {},
+              onPressed: () => _homeNavigator(context),
               child: Text(
                 "로그인하기",
                 style: TextStyle(
@@ -54,6 +55,12 @@ class LandingPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _homeNavigator(BuildContext context) {
+    return Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: (context) => HomePage()),
     );
   }
 }
