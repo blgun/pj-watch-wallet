@@ -18,3 +18,4 @@ Color blackColor = const Color(0xff000000);
 Color bg1Color = const Color(0xffF5F7F6);
 Color titleColor = const Color(0xff121212);
 Color backgroundColor = const Color(0xffF5F7F6);
+Color greyBackgroundColor = const Color(0xffC5C4B7);

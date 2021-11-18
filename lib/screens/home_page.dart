@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
                     borderWidth: 1.h,
                     verticalPadding: 8.h,
                     horizontalPadding: 17.w,
-                    onPressed: () => {},
+                    onPressed: () => {_showQR(context)},
                     child: Text(
                       "로그인하기",
                       style: TextStyle(
@@ -118,6 +118,117 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _showQR(BuildContext context) {
+    return showModalBottomSheet<void>(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(40.r), topRight: Radius.circular(40.r)),
+      ),
+      builder: (BuildContext context) {
+        return SingleChildScrollView(
+          child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 24.w),
+              child: Column(
+                children: [
+                  Container(
+                    child: Text(""),
+                    width: 36.w,
+                    height: 4.h,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16.r),
+                        border:
+                            Border.all(width: 1, color: greyBackgroundColor)),
+                  ),
+                  SizedBox(
+                    height: 24.h,
+                  ),
+                  Text(
+                    "내 주소 보기",
+                    style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w400,
+                        color: bodyColor),
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  Container(
+                    height: 200.h,
+                    width: 200.h,
+                    color: greyBackgroundColor,
+                    child: Text(
+                      "QR코드 공간",
+                      style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400,
+                          color: bodyColor),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40.h,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: CustomButton(
+                      color: accectIconButtonColor,
+                      borderRadius: 16.r,
+                      borderColor: accectIconButtonColor,
+                      borderWidth: 1.h,
+                      verticalPadding: 16.h,
+                      horizontalPadding: 16.w,
+                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              "abcdefghijklmnopqrxtuvadsfasdfadsfasdfasdfasdfasdfasdfasdfasdfasdfasdfwxyz1234567890",
+                              overflow: TextOverflow.fade,
+                              maxLines: 20,
+                              style: TextStyle(
+                                  color: whiteColor,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18.sp),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 44.w,
+                          ),
+                          Text(
+                            "복사하기",
+                            style: TextStyle(
+                                color: whiteColor,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 18.sp),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24.h,
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 40.w),
+                        child: Text(
+                          "유의사항",
+                          style: TextStyle(
+                              color: bodyColor,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16.sp),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              )),
+        );
+      },
     );
   }
 }
